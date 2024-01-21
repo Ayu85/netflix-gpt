@@ -6,7 +6,7 @@ const Login = () => {
         <div className='relative'>
             <Header />
             <div className='absolute'
-            ><img src={bgLogo} alt='logo' />
+            ><img src={bgLogo} alt='logo' className='md:h-[100vw] sm:h-[100vw] lg:h-auto object-fill w-full' />
             </div>
         </div>
     )
