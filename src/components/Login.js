@@ -24,6 +24,7 @@ const Login = () => {
                     <h1 className='text-sm'>This page is protected by Google reCAPTCHA to ensure you're not a bot.
                         <span className='text-blue-500'>Learn more</span></h1>
                 </div>
+                
             </div>
 
         </div>
