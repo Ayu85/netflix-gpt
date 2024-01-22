@@ -3,6 +3,8 @@ import Header from './Header'
 import bgLogo from "../assets/Bg.jpg"
 import Footer from './Footer'
 import { FaEye } from "react-icons/fa6";
+import { FaEyeLowVision } from "react-icons/fa6";
+
 const Login = () => {
     const [showPass, setShowPass] = useState(false)
     const tooglePassword = () => {
@@ -19,9 +21,10 @@ const Login = () => {
                 <h1 className='text-3xl pb-4 font-semibold text-white'>Sign in</h1>
                 <input type='mail' placeholder='Email or phone number' className='w-[320px] h-[50px]  rounded-md placeholder-shown:bg-[#333333] outline-none border-b-orange-400 border-b pl-2 tracking-wider' />
                 <div className='relative'>
-                    <input type='password' placeholder='Password' className='w-[320px] h-[50px] rounded-md  placeholder-shown:bg-[#333333] outline-none pl-2 border-b-orange-400 border-b tracking-wider' />
-                    <FaEye className='text-[#949494] text-2xl absolute right-3 top-3 cursor-pointer ' onClick={tooglePassword} />
-                </div>
+                    <input type={!showPass ? "password" : "text"} placeholder='Password' className='w-[320px] h-[50px] rounded-md  placeholder-shown:bg-[#333333] outline-none pl-2 border-b-orange-400 border-b tracking-wider' />
+                    {!showPass ? <FaEye className='text-[#949494] text-2xl absolute right-3 top-3 cursor-pointer ' onClick={tooglePassword} />
+                        : <FaEyeLowVision className='text-[#949494] text-2xl absolute right-3 top-3 cursor-pointer ' onClick={tooglePassword} />
+                    }</div>
                 <button className='bg-[#E50914] w-[320px] h-[50px] mt-7 rounded-md text-white text-lg'>Sign In</button>
                 <div className='flex justify-between w-[320px] h-[50px] -mt-5 text-sm font-semibold'>
                     <div className='text-[#ADADAD] flex items-center gap-1'>
