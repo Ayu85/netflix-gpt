@@ -21,7 +21,8 @@ const Login = () => {
                 <h1 className='text-3xl pb-4 font-semibold text-white'>Sign in</h1>
                 <input type='mail' placeholder='Email or phone number' className='w-[320px] h-[50px]  rounded-md placeholder-shown:bg-[#333333] outline-none border-b-orange-400 border-b pl-2 tracking-wider' />
                 <div className='relative'>
-                    <input type={!showPass ? "password" : "text"} placeholder='Password' className='w-[320px] h-[50px] rounded-md  placeholder-shown:bg-[#333333] outline-none pl-2 border-b-orange-400 border-b tracking-wider' />
+                    <input type={!showPass ? "password" : "text"} placeholder='Password' 
+                    className='w-[320px] h-[50px] rounded-md  placeholder-shown:bg-[#333333] outline-none pl-2 border-b-orange-400 border-b tracking-wider' />
                     {!showPass ? <FaEye className='text-[#949494] text-2xl absolute right-3 top-3 cursor-pointer ' onClick={tooglePassword} />
                         : <FaEyeLowVision className='text-[#949494] text-2xl absolute right-3 top-3 cursor-pointer ' onClick={tooglePassword} />
                     }</div>
