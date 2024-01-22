@@ -1,4 +1,3 @@
-import React from 'react'
 
 const validate = (email, passowrd) => {
     var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
