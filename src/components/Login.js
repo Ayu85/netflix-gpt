@@ -1,9 +1,10 @@
 import React from 'react'
 import Header from './Header'
 import bgLogo from "../assets/Bg.jpg"
+import Footer from './Footer'
 const Login = () => {
     return (
-        <div className='relative'>
+        <div className='relative lg:h-[70vw] md:h-[130vw] sm:h-[150vw]'>
             <Header />
             <div className='absolute'
             ><img src={bgLogo} alt='logo' className=' md:h-[130vw] sm:h-[150vw] bg-cover lg:h-[70vw]' />
@@ -24,9 +25,8 @@ const Login = () => {
                     <h1 className='text-sm'>This page is protected by Google reCAPTCHA to ensure you're not a bot.
                         <span className='text-blue-500'>Learn more</span></h1>
                 </div>
-                
             </div>
-
+           <Footer />
         </div>
     )
 }

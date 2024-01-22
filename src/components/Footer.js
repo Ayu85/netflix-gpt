@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <div className='bg-[#000000d8] text-[#ADADAD]' >
+        <div className='bg-[#000000d8] text-[#ADADAD] absolute bottom-0 ' >
             <div>Questions? Call 000-800-122-355</div>
             <div >
                 <div>
