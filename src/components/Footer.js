@@ -22,7 +22,7 @@ const Footer = () => {
 
             </div>
             <div>
-                <select name="Language" id="lang" className='bg-black py-3 px-6'>
+                <select name="Language" id="lang" className='bg-black py-3 px-6 border-slate-500 border ' >
                     <option value="volvo">English</option>
                     <option value="saab">Hindi</option>
                 </select>
