@@ -15,7 +15,7 @@ const Login = () => {
                 <button className='bg-[#E50914] w-[320px] h-[50px] mt-7 rounded-md text-white text-lg'>Sign In</button>
                 <div>
                     <div className='text-[#737373] flex items-center gap-1'>
-                        <input type='checkbox' className='appearance-none default:ring-2 ring-white ' /><label>Remember me</label>
+                        <input type='checkbox' className='  peer-checked:bg-slate-900 ' /><label>Remember me</label>
                     </div>
                     <div></div>
                 </div>
