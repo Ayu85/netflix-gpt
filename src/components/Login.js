@@ -1,17 +1,44 @@
 import React, { useRef, useState } from 'react'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import Header from './Header'
 import bgLogo from "../assets/Bg.jpg"
 import Footer from './Footer'
 import { FaEye } from "react-icons/fa6";
 import { FaEyeLowVision } from "react-icons/fa6";
 import validate from '../utils/validate';
+import { auth } from '../utils/firebase';
 const Login = () => {
     const [showPass, setShowPass] = useState(false)
-    const [emailvalidationError, setEmailValidationError] = useState("")
-    const [passwordvalidationError, setPasswordValidationError] = useState("")
+    const [emailvalidationError, setEmailValidationError] = useState(null)
+    const [passwordvalidationError, setPasswordValidationError] = useState(null)
     const [isSignIn, setSignIn] = useState(true);
     const email = useRef(null);
     const password = useRef(null);
+    const signupUser = () => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+    }
+    const signinUser = () => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+    }
     const tooglePassword = () => {
         setShowPass(!showPass)
     }
@@ -22,6 +49,10 @@ const Login = () => {
         const validateInfo = validate(email?.current?.value, password?.current?.value);
         setEmailValidationError(validateInfo?.emailError)
         setPasswordValidationError(validateInfo?.passwordError);
+        emailvalidationError == null &&
+            passwordvalidationError == null && !isSignIn ?
+            signupUser(auth, email, password) : signinUser(auth, email, password)
+
     }
 
     return (
