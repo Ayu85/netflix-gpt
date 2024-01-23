@@ -15,7 +15,7 @@ const Login = () => {
     const email = useRef(null);
     const password = useRef(null);
     const signupUser = () => {
-        createUserWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
@@ -28,7 +28,7 @@ const Login = () => {
             });
     }
     const signinUser = () => {
-        signInWithEmailAndPassword(auth, email, password)
+        signInWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
@@ -51,8 +51,7 @@ const Login = () => {
         setPasswordValidationError(validateInfo?.passwordError);
         emailvalidationError == null &&
             passwordvalidationError == null && !isSignIn ?
-            signupUser(auth, email, password) : signinUser(auth, email, password)
-
+            signupUser(auth, password?.current?.value, password?.current?.value) : signinUser(auth, email?.current?.value, password?.current?.value)
     }
 
     return (
