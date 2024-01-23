@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import Header from './Header'
 import bgLogo from "../assets/Bg.jpg"
@@ -9,16 +9,22 @@ import validate from '../utils/validate';
 import { auth } from '../utils/firebase';
 const Login = () => {
     const [showPass, setShowPass] = useState(false)
-    const [emailvalidationError, setEmailValidationError] = useState(null)
-    const [passwordvalidationError, setPasswordValidationError] = useState(null)
+    const [emailvalidationError, setEmailValidationError] = useState(false)
+    // const [passwordvalidationError, setPasswordValidationError] = useState(false)
     const [isSignIn, setSignIn] = useState(true);
-    const email = useRef(null);
-    const password = useRef(null);
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    useEffect(() => {
+        const validateInfo = validate(email, password);
+        setEmailValidationError(validateInfo)
+        console.log(validateInfo);
+    }, [email, password])
     const signupUser = () => {
-        createUserWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
+                console.log(user);
                 // ...
             })
             .catch((error) => {
@@ -30,7 +36,7 @@ const Login = () => {
         console.log("sign up");
     }
     const signinUser = () => {
-        signInWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
+        signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
@@ -42,6 +48,7 @@ const Login = () => {
                 const errorMessage = error.message;
                 console.log(errorCode, " ", errorMessage, "sign in function");
             });
+        console.log("signed in");
     }
     const tooglePassword = () => {
         setShowPass(!showPass)
@@ -50,15 +57,8 @@ const Login = () => {
         setSignIn(!isSignIn)
     }
     const handleSumbmit = () => {
-        const validateInfo = validate(email?.current?.value, password?.current?.value);
-        setEmailValidationError(validateInfo?.emailError)
-        setPasswordValidationError(validateInfo?.passwordError);
-        emailvalidationError == null &&
-            passwordvalidationError == null && isSignIn &&
-            signinUser(auth, password?.current?.value, password?.current?.value)
-        emailvalidationError == null &&
-            passwordvalidationError == null && isSignIn === false &&
-            signupUser(auth, password?.current?.value, password?.current?.value)
+        if (emailvalidationError) return;
+        !isSignIn ? signupUser(email, password) : signinUser(email, password);
     }
 
     return (
@@ -71,15 +71,20 @@ const Login = () => {
                 e.preventDefault()
             }} className='absolute bg-[#000000d8] flex flex-col gap-4 h-[600px] px-20 py-20 left-[50%] -translate-x-[50%] mt-28 z-50  '>
                 <h1 className='text-3xl pb-4 font-semibold text-white'>Sign in</h1>
-                <input type='mail' placeholder='Email or phone number' ref={email} className='w-[320px] h-[50px]  rounded-md placeholder-shown:bg-[#333333] outline-none border-b-orange-400 border-b pl-2 tracking-wider' />
-                <span className='text-[#E87C03] -mt-3 ml-1'>{emailvalidationError}</span>
+                <input type='mail' placeholder='Email or phone number' value={email} onChange={(e) => {
+                    setEmail(e.target.value)
+
+                }} className='w-[320px] h-[50px]  rounded-md placeholder-shown:bg-[#333333] outline-none border-b-orange-400 border-b pl-2 tracking-wider' />
+                {/* <span className='text-[#E87C03] -mt-3 ml-1'>{emailvalidationError}</span> */}
                 <div className='relative'>
-                    <input type={!showPass ? "password" : "text"} placeholder='Password' ref={password}
+                    <input type={!showPass ? "password" : "text"} placeholder='Password' onChange={(e) => {
+                        setPassword(e.target.value)
+                    }} value={password}
                         className='w-[320px] h-[50px] rounded-md  placeholder-shown:bg-[#333333] outline-none pl-2 border-b-orange-400 border-b tracking-wider' />
                     {!showPass ? <FaEye className='text-[#949494] text-2xl absolute right-3 top-3 cursor-pointer ' onClick={tooglePassword} />
                         : <FaEyeLowVision className='text-[#949494] text-2xl absolute right-3 top-3 cursor-pointer ' onClick={tooglePassword} />
                     }</div>
-                <span className='text-[#E87C03] -mt-3 ml-1'>{passwordvalidationError}</span>
+                <span className='text-[#E87C03] -mt-3 ml-1'>{emailvalidationError && "InvalidEmail/password"}</span>
                 <input type="submit" onClick={handleSumbmit} className='bg-[#E50914] w-[320px] h-[50px] mt-7 rounded-md text-white cursor-pointer text-lg' />
                 <div className='flex justify-between w-[320px] h-[50px] -mt-5 text-sm font-semibold'>
                     <div className='text-[#ADADAD] flex items-center gap-1'>
@@ -99,16 +104,20 @@ const Login = () => {
                     e.preventDefault()
                 }} className='absolute bg-[#000000d8] flex flex-col gap-4 h-[600px] px-20 py-20 left-[50%] -translate-x-[50%] mt-28 z-50  '>
                     <h1 className='text-3xl pb-4 font-semibold text-white'>Sign up</h1>
-                    <input type='text' placeholder='User name' ref={email} className='w-[320px] h-[50px]  rounded-md placeholder-shown:bg-[#333333] outline-none border-b-orange-400 border-b pl-2 tracking-wider' />
-                    <input type='mail' placeholder='Email or phone number' ref={email} className='w-[320px] h-[50px]  rounded-md placeholder-shown:bg-[#333333] outline-none border-b-orange-400 border-b pl-2 tracking-wider' />
-                    <span className='text-[#E87C03] -mt-3 ml-1'>{emailvalidationError}</span>
+                    <input type='text' placeholder='User name' className='w-[320px] h-[50px]  rounded-md placeholder-shown:bg-[#333333] outline-none border-b-orange-400 border-b pl-2 tracking-wider' />
+                    <input type='mail' placeholder='Email or phone number' onChange={(e) => {
+                        setEmail(e.target.value)
+                    }} value={email} className='w-[320px] h-[50px]  rounded-md placeholder-shown:bg-[#333333] outline-none border-b-orange-400 border-b pl-2 tracking-wider' />
+
                     <div className='relative'>
-                        <input type={!showPass ? "password" : "text"} placeholder='Password' ref={password}
+                        <input type={!showPass ? "password" : "text"} placeholder='Password' onChange={(e) => {
+                            setPassword(e.target.value)
+                        }} value={password}
                             className='w-[320px] h-[50px] rounded-md  placeholder-shown:bg-[#333333] outline-none pl-2 border-b-orange-400 border-b tracking-wider' />
                         {!showPass ? <FaEye className='text-[#949494] text-2xl absolute right-3 top-3 cursor-pointer ' onClick={tooglePassword} />
                             : <FaEyeLowVision className='text-[#949494] text-2xl absolute right-3 top-3 cursor-pointer ' onClick={tooglePassword} />
                         }</div>
-                    <span className='text-[#E87C03] -mt-3 ml-1'>{passwordvalidationError}</span>
+                    <span className='text-[#E87C03] -mt-3 ml-1'>{emailvalidationError && "Invalid email/password"}</span>
                     <input type="submit" onClick={handleSumbmit} className='bg-[#E50914] w-[320px] h-[50px] mt-7 rounded-md text-white cursor-pointer text-lg' />
                     <div className='flex justify-between w-[320px] h-[50px] -mt-5 text-sm font-semibold'>
                         <div className='text-[#ADADAD] flex items-center gap-1'>
