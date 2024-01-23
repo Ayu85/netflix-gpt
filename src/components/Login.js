@@ -7,13 +7,18 @@ import { FaEye } from "react-icons/fa6";
 import { FaEyeLowVision } from "react-icons/fa6";
 import validate from '../utils/validate';
 import { auth } from '../utils/firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUser } from './redux/userslice';
 const Login = () => {
     const [showPass, setShowPass] = useState(false)
     const [emailvalidationError, setEmailValidationError] = useState(false)
+    const userData = useSelector(store => store.user.userData)
+    console.log("storedata",userData);
     // const [passwordvalidationError, setPasswordValidationError] = useState(false)
     const [isSignIn, setSignIn] = useState(true);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const dispatchAction = useDispatch();
     useEffect(() => {
         const validateInfo = validate(email, password);
         setEmailValidationError(validateInfo)
@@ -40,6 +45,7 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                dispatchAction(addUser(user))
                 console.log(user);
                 // ...
             })
