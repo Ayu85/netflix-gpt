@@ -9,20 +9,21 @@ import validate from '../utils/validate';
 import { auth } from '../utils/firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from './redux/userslice';
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const [showPass, setShowPass] = useState(false)
     const [emailvalidationError, setEmailValidationError] = useState(false)
-    // const userData = useSelector(store => store.user.userData)
-    // console.log("storedata",userData);
+    const userData = useSelector(store => store.user.userData)
     // const [passwordvalidationError, setPasswordValidationError] = useState(false)
     const [isSignIn, setSignIn] = useState(true);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate();
     const dispatchAction = useDispatch();
     useEffect(() => {
         const validateInfo = validate(email, password);
         setEmailValidationError(validateInfo)
-        console.log(validateInfo);
+        // console.log(validateInfo);
     }, [email, password])
     const signupUser = () => {
         createUserWithEmailAndPassword(auth, email, password)
@@ -45,9 +46,7 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                // dispatchAction(addUser(user))
-                // console.log(user);
-                // ...
+                navigate('/browse')               // ...
             })
             .catch((error) => {
                 const errorCode = error.code;

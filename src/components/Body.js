@@ -6,6 +6,7 @@ import { Provider, useDispatch, useSelector } from 'react-redux'
 import store from './redux/store'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { UseDispatch } from 'react-redux'
+import { addUser, removeUser } from './redux/userslice'
 
 const approuter = createBrowserRouter([
     {
@@ -21,27 +22,27 @@ const approuter = createBrowserRouter([
 const Body = () => {
     const dispatch_action = useDispatch();
     const userData = useSelector(store => store.user.userData)
-    console.log(userData);
+    let auth = getAuth();
     useEffect(() => {
-        const auth = getAuth();
+        auth = getAuth();
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/auth.user
-                const uid = user.uid;
-                dispatch_action(user.uid, user.displayName, user.email)
-                console.log();
+                const { email, uid } = user;
+                dispatch_action(addUser({ email: email, uid: uid }))
                 // ...
             } else {
                 // User is signed out
                 // ...
+                dispatch_action(removeUser())
             }
         });
-    }, [])
+    }, [auth])
     return (
-        <Provider store={store}>
+        <div>
             <RouterProvider router={approuter} />
-        </Provider>
+        </div>
     )
 }
 
