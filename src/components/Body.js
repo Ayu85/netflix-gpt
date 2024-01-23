@@ -2,6 +2,8 @@ import React from 'react'
 import Login from './Login'
 import Browse from './Browse'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './redux/store'
 const approuter = createBrowserRouter([
     {
         path: '/',
@@ -14,9 +16,9 @@ const approuter = createBrowserRouter([
 ])
 const Body = () => {
     return (
-        <div>
-            <RouterProvider router={approuter}/>
-        </div>
+        <Provider store={store}><div>
+            <RouterProvider router={approuter} />
+        </div></Provider>
     )
 }
 
