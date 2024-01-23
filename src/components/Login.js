@@ -24,8 +24,10 @@ const Login = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(errorCode, " ", errorMessage, "sign up function");
                 // ..
-            });
+            })
+        console.log("sign up");
     }
     const signinUser = () => {
         signInWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
@@ -37,6 +39,7 @@ const Login = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(errorCode, " ", errorMessage, "sign in function");
             });
     }
     const tooglePassword = () => {
@@ -50,8 +53,11 @@ const Login = () => {
         setEmailValidationError(validateInfo?.emailError)
         setPasswordValidationError(validateInfo?.passwordError);
         emailvalidationError == null &&
-            passwordvalidationError == null && !isSignIn ?
-            signupUser(auth, password?.current?.value, password?.current?.value) : signinUser(auth, email?.current?.value, password?.current?.value)
+            passwordvalidationError == null && isSignIn &&
+            signinUser(auth, password?.current?.value, password?.current?.value)
+        emailvalidationError == null &&
+            passwordvalidationError == null && isSignIn === false &&
+            signupUser(auth, password?.current?.value, password?.current?.value)
     }
 
     return (
