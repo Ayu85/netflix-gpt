@@ -30,7 +30,7 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
-                // console.log(user);
+                navigate('/browse')              
                 // ...
             })
             .catch((error) => {
