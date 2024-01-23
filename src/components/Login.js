@@ -12,8 +12,8 @@ import { addUser } from './redux/userslice';
 const Login = () => {
     const [showPass, setShowPass] = useState(false)
     const [emailvalidationError, setEmailValidationError] = useState(false)
-    const userData = useSelector(store => store.user.userData)
-    console.log("storedata",userData);
+    // const userData = useSelector(store => store.user.userData)
+    // console.log("storedata",userData);
     // const [passwordvalidationError, setPasswordValidationError] = useState(false)
     const [isSignIn, setSignIn] = useState(true);
     const [email, setEmail] = useState('')
@@ -29,7 +29,7 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed up 
                 const user = userCredential.user;
-                console.log(user);
+                // console.log(user);
                 // ...
             })
             .catch((error) => {
@@ -45,8 +45,8 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                dispatchAction(addUser(user))
-                console.log(user);
+                // dispatchAction(addUser(user))
+                // console.log(user);
                 // ...
             })
             .catch((error) => {
