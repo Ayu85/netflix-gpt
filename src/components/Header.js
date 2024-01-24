@@ -7,5 +7,11 @@ const Header = () => {
         </div>
     )
 }
+export const BrowseHeader = () => {
+    return <div >
+        < Header  />
+        <button className='absolute right-0 text-white z-50 font-semibold'>Sign out</button>
+    </div>
+}
 
 export default Header

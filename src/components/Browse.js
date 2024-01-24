@@ -1,9 +1,9 @@
 import React from 'react'
-
+import { BrowseHeader } from './Header'
 const Browse = () => {
     return (
         <div>
-            browse
+            <BrowseHeader/>
         </div>
     )
 }
