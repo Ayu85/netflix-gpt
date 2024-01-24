@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import Header from './Header'
 import bgLogo from "../assets/Bg.jpg"
 import Footer from './Footer'
@@ -7,28 +7,23 @@ import { FaEye } from "react-icons/fa6";
 import { FaEyeLowVision } from "react-icons/fa6";
 import validate from '../utils/validate';
 import { auth } from '../utils/firebase';
-import { useDispatch, useSelector } from 'react-redux';
-import { addUser, removeUser } from './redux/userslice';
-import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
     const [showPass, setShowPass] = useState(false)
     const [emailvalidationError, setEmailValidationError] = useState(false)
-    const userData = useSelector(store => store.user.userData)
-    // const [passwordvalidationError, setPasswordValidationError] = useState(false)
+
     const [isSignIn, setSignIn] = useState(true);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-  
+
     useEffect(() => {
         const validateInfo = validate(email, password);
         setEmailValidationError(validateInfo)
         // console.log(validateInfo);
     }, [email, password])
-    
-    // console.log(auth);
-    // if (auth.currentUser === null) navigate('/')
 
-    //  console.log(userData.email);
+
+
     const signupUser = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
