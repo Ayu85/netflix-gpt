@@ -4,7 +4,7 @@ const MovieList = ({ title, movies, id }) => {
     return (
         <div className='flex flex-col px-10 overflow-y-hidden  '>
             <h1 className='text-white text-2xl font-bold'>{title}</h1>
-            <div className='flex list snap-none  justify-center gap-5 pt-3'>
+            <div className='flex element  justify-center gap-5 pt-3'>
                 {
                     movies.map((items, id) => {
                         return <MovieCard {...items} id={id} />
