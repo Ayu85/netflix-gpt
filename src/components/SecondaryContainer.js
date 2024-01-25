@@ -1,11 +1,13 @@
 import React from 'react'
 import MovieList from './MovieList'
 import { useSelector } from 'react-redux'
+
 const SecondaryContainer = () => {
-    const movie = useSelector(store => store.movie.movieData);
+    const storeMovies = useSelector(store => store.movie.movieData)
+    if (!storeMovies) return;
     return (
-        <div>
-            <MovieList {...movie} title={"Now Playing"} />
+        <div className='bg-gradient-to-b from-black '>
+            <MovieList movies={storeMovies} title={"Now Playing"} />
         </div >
     )
 }
