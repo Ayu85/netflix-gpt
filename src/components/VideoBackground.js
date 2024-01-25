@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react'
-import { options } from '../utils/constants'
-import { addTrailer } from './redux/movieslice'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import useMovieTrailer from '../hooks/useMovieTrailer'
 // this page is to get the various videos{of one id} using the movie id and filter the trailer from those videos
 const VideoBackground = ({ movieId }) => {
@@ -12,7 +10,10 @@ const VideoBackground = ({ movieId }) => {
   console.log(trailer);
   return (
     <div>
-      bg
+      <iframe width="560" height="315" src={`https://www.youtube.com/embed/${videoKey}?si=P_luRiqLZxm9dTyU`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; e
+      ncrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+      </iframe>
     </div>
   )
 }
