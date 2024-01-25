@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowseHeader } from './Header'
 import { useSelector } from 'react-redux';
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies';
+import MainContainer from './MainContainer';
 
 
 
@@ -12,6 +13,7 @@ const Browse = () => {
     return (
         <div className='relative'>
             <BrowseHeader />
+            <MainContainer/>
         </div>
     )
 }
