@@ -5,6 +5,7 @@ import MovieCard from './Movie_Card'
 import { CgPlayTrackNextR, CgPlayTrackPrevR } from "react-icons/cg";
 
 const Browse = () => {
+    let container = document.getElementById("card-container")
     const getMoviesData = async () => {
         const rawData = await fetch('https://api.themoviedb.org/3/movie/now_playing?&page=1', options);
         const jsonData = await rawData.json();
@@ -13,26 +14,25 @@ const Browse = () => {
     useEffect(() => {
         // getMoviesData()
     }, [])
+
     return (
         <div>
             <BrowseHeader />
-            <div className='relative '>
-                <div className='  h-[300px] w-[70%] ml-[50%] -translate-x-[50%] overflow-hidden bg-slate-300 flex gap-5 justify-center '>
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                </div>
-                <div className=' '>
-                    <CgPlayTrackNextR className='text-3xl absolute  top-28 right-20 cursor-pointer' />
-                    <CgPlayTrackPrevR className='text-3xl absolute  top-28 left-20 cursor-pointer'/>
-                </div>
+
+            <div className='    ml-[50%] w-[60%] 
+            -translate-x-[50%]  scroll-smooth bg-slate-300 flex flex-wrap gap-5 justify-center '>
+                <MovieCard />
+                <MovieCard />
+                <MovieCard />
+                <MovieCard />
+                <MovieCard />
+                <MovieCard />
+                <MovieCard />
+                <MovieCard />
+                <MovieCard />
             </div>
+
+
         </div>
     )
 }
