@@ -9,7 +9,7 @@ const MainContainer = () => {
     const movieId = trailerPlayingMovie.id
     const { original_title ,overview} = trailerPlayingMovie;
     return (
-        <div className='relative overflow-hidden'>
+        <div className='relative overflow-hidden z-10'>
             <VideoBackground movieId={movieId} />
             <VideoTitle title={original_title} overview={overview} />
         </div>
