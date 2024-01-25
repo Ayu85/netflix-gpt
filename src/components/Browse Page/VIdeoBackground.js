@@ -9,11 +9,10 @@ const VideoBackground = () => {
         const trailerVdeos = jsonData?.results.filter((items) => {
             return items.type === "Trailer"
         })
-        console.log(trailerVdeos[0
-        ]);
+        console.log(trailerVdeos[0]);
     }
     useEffect(() => {
-        getAllVideosById();
+        // getAllVideosById();
     }, [])
     return (
         <div>
