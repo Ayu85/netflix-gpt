@@ -10,8 +10,13 @@ const VideoBackground = ({ movieId }) => {
   console.log(trailer);
   return (
     <div>
+<<<<<<< HEAD
       <iframe  src={`https://www.youtube.com/embed/${videoKey}?si=P_luRiqLZxm9dTyU`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; e
       ncrypted-media; gyroscope; picture-in-picture; web-share" >
+=======
+      <iframe width="560" height="315" src={`https://www.youtube.com/embed/${videoKey}?si=P_luRiqLZxm9dTyU`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; e
+      ncrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+>>>>>>> d92ccb2418834a8b309d1471b0c95570c1db6c4f
 
       </iframe>
     </div>
