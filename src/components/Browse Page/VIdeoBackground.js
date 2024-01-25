@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
 import { options } from '../../utils/constants'
+import { useSelector } from 'react-redux'
 
 const VideoBackground = () => {
+    const movieDetails = useSelector(store => store.movie.movieData)
+    console.log(movieDetails);
     const getAllVideosById = async () => {
         const rawData = await fetch("https://api.themoviedb.org/3/movie/787699/videos?language=en-US", options)
         const jsonData = await rawData.json();

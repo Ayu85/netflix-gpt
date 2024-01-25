@@ -11,11 +11,12 @@ const Browse = () => {
     const getMoviesData = async () => {
         const rawData = await fetch('https://api.themoviedb.org/3/movie/now_playing?&page=1', options);
         const jsonData = await rawData.json();
-        console.log(jsonData);
+        dispatch(addMovies(jsonData?.results))
 
     }
     useEffect(() => {
-        // getMoviesData()
+          getMoviesData()
+    
     }, [])
 
     return (
