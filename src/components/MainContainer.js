@@ -7,7 +7,7 @@ const MainContainer = () => {
     if (!movie) return;
     const trailerPlayingMovie = movie[1];
     const movieId = trailerPlayingMovie.id
-    const { original_title ,overview} = movie[1];
+    const { original_title ,overview} = trailerPlayingMovie;
     return (
         <div className='relative overflow-hidden'>
             <VideoBackground movieId={movieId} />
