@@ -15,7 +15,7 @@ const Browse = () => {
 
     }
     useEffect(() => {
-          getMoviesData()
+        //   getMoviesData()
     
     }, [])
 

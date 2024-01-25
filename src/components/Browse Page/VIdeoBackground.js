@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux'
 
 const VideoBackground = () => {
     const movieDetails = useSelector(store => store.movie.movieData)
-    console.log(movieDetails);
+    const movieId = movieDetails[0]?.id;
+    console.log(movieId);
     const getAllVideosById = async () => {
-        const rawData = await fetch("https://api.themoviedb.org/3/movie/787699/videos?language=en-US", options)
+        const rawData = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`, options)
         const jsonData = await rawData.json();
         console.log(jsonData);
         const trailerVdeos = jsonData?.results.filter((items) => {
