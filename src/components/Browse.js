@@ -18,19 +18,11 @@ const Browse = () => {
     return (
         <div>
             <BrowseHeader />
-
-            <div className='    ml-[50%] w-[60%] 
+            
+            {/* <div className='    ml-[50%] w-[60%] 
             -translate-x-[50%]  scroll-smooth bg-slate-300 flex flex-wrap gap-5 justify-center '>
                 <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-            </div>
+            </div> */}
 
 
         </div>
