@@ -63,12 +63,18 @@ export const BrowseHeader = () => {
     return <div className=' overflow-hidden absolute z-50 bg-gradient-to-b from-black to-[#1d1c1c01] w-full items-center flex justify-between pl-2 '>
         <div className='pl-5 pt-2'> <img src={logo} alt='logo' className='w-32 md:w-34 sm:w-32 lg:w-44' /></div>
         <div className=' flex  h-20'>
+            <div className='mt-8 h-8 px-3'>
+                <select name="Language" id="lang" className='bg-black py-1 px-6 border-slate-700 border text-white' >
+                    <option value="volvo">English</option>
+                    <option value="saab">Hindi</option>
+                </select>
+            </div>
             <button className='bg-green-600 px-3 h-8
          rounded-md font-semibold mr-10 mt-8 text-white flex items-center gap-1' onClick={() => {
                     dispatch_action(toogleGPT())
-                    console.log(showGPT);
                 }}><SiElasticsearch />
                 GPT Search</button>
+
             <button className=' bg-[#E50914] px-3 h-8
          rounded-md font-semibold mr-10 mt-8 flex items-center gap-1 text-white z-50 ' onClick={() => {
                     const auth = getAuth();
