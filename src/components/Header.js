@@ -60,28 +60,31 @@ export const BrowseHeader = () => {
     const userData = useSelector(store => store.user.userData)
     return <div className=' overflow-hidden absolute z-50 bg-gradient-to-b from-black to-[#1d1c1c01] w-full items-center flex justify-between pl-2 '>
         <div className='pl-5 pt-2'> <img src={logo} alt='logo' className='w-32 md:w-34 sm:w-32 lg:w-44' /></div>
-        <div className=' h-20'><button className=' bg-[#E50914] px-3 h-8
+        <div className=' flex  h-20'>
+            <button className='bg-green-600 px-3 h-8
+         rounded-md font-semibold mr-10 mt-8 text-white'>GPT Search</button>
+            <button className=' bg-[#E50914] px-3 h-8
          rounded-md font-semibold mr-10 mt-8 flex items-center gap-1 text-white z-50 ' onClick={() => {
-                const auth = getAuth();
-                signOut(auth).then(() => {
-                    // Sign-out successful.
-                    // navigate('/')
-                }).catch((error) => {
-                    // An error happened.
-                });
-            }} onMouseEnter={() => {
-                setShowUser(true)
-            }} onMouseLeave={() => {
-                setShowUser(false)
-            }}><CiLogout className='text-white font-bold' />
-            Sign out</button>
+                    const auth = getAuth();
+                    signOut(auth).then(() => {
+                        // Sign-out successful.
+                        // navigate('/')
+                    }).catch((error) => {
+                        // An error happened.
+                    });
+                }} onMouseEnter={() => {
+                    setShowUser(true)
+                }} onMouseLeave={() => {
+                    setShowUser(false)
+                }}><CiLogout className='text-white font-bold' />
+                Sign out</button>
             {
                 showUserData && < div className='text-white z-50 absolute  duration-100 
              transition-all bg-[#232323] px-3 py-2 mr-2 flex items-center right-5 top-14 gap-2'><FcBusinessman />
                     {userData?.email} <FcOk />
                 </div>
-            }  
-                  </div>
+            }
+        </div>
 
     </div>
 }
