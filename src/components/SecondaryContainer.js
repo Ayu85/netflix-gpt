@@ -8,14 +8,13 @@ const SecondaryContainer = () => {
     const topRatedMovies = useSelector(store => store.movie.topRatedMovies)
     const upcomingMovies = useSelector(store => store.movie.upcomingMovies)
 
-    if (!storeMovies || !popularMovies) return;
+    if (!storeMovies || !popularMovies || !topRatedMovies || !upcomingMovies) return;
     return (
         <div className='-mt-52 relative z-50 '>
             <MovieList movies={storeMovies} title={"Now Playing"} />
             <MovieList movies={popularMovies} title={"Popular"} />
             <MovieList movies={topRatedMovies} title={"Top Rated"} />
             <MovieList movies={upcomingMovies} title={"Upcoming"} />
-
         </div >
     )
 }
