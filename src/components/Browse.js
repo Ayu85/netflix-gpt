@@ -14,7 +14,7 @@ const Browse = () => {
     useTopRatedMovies();
     useUpcomingMovies();
     return (
-        <div className='relative bg-black'>
+        <div className='relative bg-zinc-900'>
             <BrowseHeader />
             <MainContainer />
             <SecondaryContainer />

@@ -10,7 +10,7 @@ const SecondaryContainer = () => {
 
     if (!storeMovies || !popularMovies || !topRatedMovies || !upcomingMovies) return;
     return (
-        <div className='-mt-52 relative z-50 '>
+        <div className=' '>
             <MovieList movies={storeMovies} title={"Now Playing"} />
             <MovieList movies={popularMovies} title={"Popular"} />
             <MovieList movies={topRatedMovies} title={"Top Rated"} />

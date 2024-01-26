@@ -7,7 +7,8 @@ const responsive = {
 
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 6
+        items: 5,
+
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
@@ -20,14 +21,15 @@ const responsive = {
 };
 const MovieList = ({ title, movies, id }) => {
     return (
-        <Carousel responsive={responsive}>
-            {/* <h1 className='text-white text-2xl font-bold'>{title}</h1> */}
-            {
-                movies.map((items, id) => {
-                    return <MovieCard {...items} id={id} />
-                })
-            }
-        </Carousel >
+        <div className='pl-14 py-2  flex flex-col'>
+            <h1 className='text-white text-2xl font-bold pb-3'>{title}</h1>
+            <Carousel responsive={responsive} className='flex '>
+                {
+                    movies.map((items, id) => {
+                        return <MovieCard {...items} id={id} />
+                    })
+                }
+            </Carousel ></div>
     )
 }
 
