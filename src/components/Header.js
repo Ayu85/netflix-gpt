@@ -8,6 +8,7 @@ import { FcBusinessman } from "react-icons/fc";
 import { CiLogout } from "react-icons/ci";
 import { addUser, removeUser } from './redux/userslice';
 import { auth } from '../utils/firebase';
+import { SiElasticsearch } from "react-icons/si";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -62,7 +63,8 @@ export const BrowseHeader = () => {
         <div className='pl-5 pt-2'> <img src={logo} alt='logo' className='w-32 md:w-34 sm:w-32 lg:w-44' /></div>
         <div className=' flex  h-20'>
             <button className='bg-green-600 px-3 h-8
-         rounded-md font-semibold mr-10 mt-8 text-white'>GPT Search</button>
+         rounded-md font-semibold mr-10 mt-8 text-white flex items-center gap-1'><SiElasticsearch />
+                GPT Search</button>
             <button className=' bg-[#E50914] px-3 h-8
          rounded-md font-semibold mr-10 mt-8 flex items-center gap-1 text-white z-50 ' onClick={() => {
                     const auth = getAuth();
