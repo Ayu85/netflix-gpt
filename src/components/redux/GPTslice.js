@@ -12,4 +12,4 @@ const GPTslice = createSlice({
     }
 })
 export const { toogleGPT } = GPTslice.actions;
-export default GPTslice
+export default GPTslice.reducer

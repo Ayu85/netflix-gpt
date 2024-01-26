@@ -9,7 +9,7 @@ import { CiLogout } from "react-icons/ci";
 import { addUser, removeUser } from './redux/userslice';
 import { auth } from '../utils/firebase';
 import { SiElasticsearch } from "react-icons/si";
-
+import { toogleGPT } from './redux/GPTslice';
 const Header = () => {
     const navigate = useNavigate();
     const dispatch_action = useDispatch();
@@ -40,6 +40,7 @@ const Header = () => {
 export const BrowseHeader = () => {
     const navigate = useNavigate();
     const dispatch_action = useDispatch();
+    const showGPT = useSelector(store => store.gpt.value)
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -63,7 +64,10 @@ export const BrowseHeader = () => {
         <div className='pl-5 pt-2'> <img src={logo} alt='logo' className='w-32 md:w-34 sm:w-32 lg:w-44' /></div>
         <div className=' flex  h-20'>
             <button className='bg-green-600 px-3 h-8
-         rounded-md font-semibold mr-10 mt-8 text-white flex items-center gap-1'><SiElasticsearch />
+         rounded-md font-semibold mr-10 mt-8 text-white flex items-center gap-1' onClick={() => {
+                    dispatch_action(toogleGPT())
+                    console.log(showGPT);
+                }}><SiElasticsearch />
                 GPT Search</button>
             <button className=' bg-[#E50914] px-3 h-8
          rounded-md font-semibold mr-10 mt-8 flex items-center gap-1 text-white z-50 ' onClick={() => {
