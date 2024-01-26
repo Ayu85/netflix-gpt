@@ -6,3 +6,14 @@ export const options = {
     }
 };
 export const IMAGE_API = 'https://image.tmdb.org/t/p/w220_and_h330_face';
+export const Language = {
+    en: {
+        placeholder: "Search your favourite show...",
+        buttonText: "Search"
+    },
+    hindi: {
+
+        placeholder: "अपना पसंदीदा शो खोजें...",
+        buttonText: "खोजें"
+    }
+}
