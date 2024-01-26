@@ -65,8 +65,8 @@ export const BrowseHeader = () => {
         <div className=' flex  h-20'>
             {showGPT && <div className='mt-8 h-8 px-3'>
                 <select name="Language" id="lang" className='bg-black py-1 px-6 border-slate-700 border text-white' >
-                    <option value="volvo">English</option>
-                    <option value="saab">Hindi</option>
+                    <option value="en">English</option>
+                    <option value="hindi">Hindi</option>
                 </select>
             </div>}
             <button className='bg-green-600 px-3 h-8
