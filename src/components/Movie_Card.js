@@ -6,7 +6,7 @@ const MovieCard = ({ original_title, poster_path, release_date, vote_average, id
     const date = new Date();
 
     return (
-        <div className='min-w-48 '>
+        <div className='min-w-40 '>
             {/* <img src='https://image.tmdb.org/t/p/w220_and_h330_face/qhb1qOilapbapxWQn9jtRCMwXJF.jpg' alt='logo' /> */}
             <img src={IMAGE_API + poster_path} alt='logo' className='w-44 rounded-lg' />
             <div className='text-zinc-50 font-bold pl-2'>{original_title}</div>
