@@ -10,6 +10,7 @@ import { addUser, removeUser } from './redux/userslice';
 import { auth } from '../utils/firebase';
 import { SiElasticsearch } from "react-icons/si";
 import { toogleGPT } from './redux/GPTslice';
+import { addLanguage } from './redux/languageslice';
 const Header = () => {
     const navigate = useNavigate();
     const dispatch_action = useDispatch();
@@ -64,8 +65,10 @@ export const BrowseHeader = () => {
         <div className='pl-5 pt-2'> <img src={logo} alt='logo' className='w-32 md:w-34 sm:w-32 lg:w-44' /></div>
         <div className=' flex  h-20'>
             {showGPT && <div className='mt-8 h-8 px-3'>
-                <select name="Language" id="lang" className='bg-black py-1 px-6 border-slate-700 border text-white' >
-                    <option value="en">English</option>
+                <select name="Language" onClick={(e) => {
+                    dispatch_action(addLanguage(e.target.value))
+                }} id="lang" className='bg-black py-1 px-6 border-slate-700 border text-white' >
+                    <option value="en" >English</option>
                     <option value="hindi">Hindi</option>
                 </select>
             </div>}
