@@ -24,7 +24,7 @@ const MovieList = ({ title, movies, id }) => {
         <div className='pl-14 py-2  flex flex-col'>
             <h1 className='text-white text-2xl font-bold pb-3'>{title}</h1>
             <Carousel responsive={responsive} infinite={true} keyBoardControl={true} autoPlay={true} autoPlaySpeed={3000}
-                removeArrowOnDeviceType={["tablet", "mobile"]}
+
                 className='flex '>
                 {
                     movies.map((items, id) => {
