@@ -23,7 +23,9 @@ const MovieList = ({ title, movies, id }) => {
     return (
         <div className='pl-14 py-2  flex flex-col'>
             <h1 className='text-white text-2xl font-bold pb-3'>{title}</h1>
-            <Carousel responsive={responsive} className='flex '>
+            <Carousel responsive={responsive} infinite={true} keyBoardControl={true} autoPlay={true} autoPlaySpeed={1000}
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                className='flex '>
                 {
                     movies.map((items, id) => {
                         return <MovieCard {...items} id={id} />
