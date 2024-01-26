@@ -1,6 +1,6 @@
 import React from 'react'
 import bgLogo from "../assets/Bg.jpg"
-
+import { Language } from '../utils/constants'
 const GPTsearch = () => {
     return (
         <div >
