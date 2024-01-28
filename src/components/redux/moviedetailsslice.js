@@ -12,3 +12,5 @@ const moviedetailsslice = createSlice({
     }
 
 })
+export const { addDetails } = moviedetailsslice.actions;
+export default moviedetailsslice.reducer
