@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom';
+import { useEffect } from 'react'
+
 import { options } from '../utils/constants';
 
 const useMovieDetails = (id) => {
