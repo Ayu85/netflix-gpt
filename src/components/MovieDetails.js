@@ -2,7 +2,7 @@ import React from 'react'
 
 const MovieDetails = () => {
     return (
-        <div className='absolute z-20 flex w-screen gap-10'>
+        <div className='absolute z-20 flex w-screen gap-10 items-center justify-center mt-28  '>
             <div>
                 <img src='https://image.tmdb.org/t/p/w220_and_h330_face/mHiMmryCureDvoAOlGP6o3oXT8Y.jpg' alt="logo" />
             </div>
@@ -16,7 +16,7 @@ const MovieDetails = () => {
                     </div>
                 </div>
                 <div>
-                    <h1 className='text-white w-10 aspect-square'>55%</h1>
+                    <h1 className='text-white  text-lg font-semibold border-yellow-500  border-4 flex items-center justify-center  w-14 h-14 rounded-full'>55%</h1>
                 </div>
             </div>
         </div>

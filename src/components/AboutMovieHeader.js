@@ -8,7 +8,7 @@ const AboutMovieHeader = () => {
             <div className='bg-gradient-to-b from-black absolute z-10 w-screen'>
                 <img src={logo} alt='logo' className='w-44' />
             </div>
-            <img src={bgLogo} alt='logo' className='w-screen absolute filter brightness-50' />
+            <img src={bgLogo} alt='logo' className='w-screen h-screen absolute filter brightness-50' />
             </div>
     )
 }
