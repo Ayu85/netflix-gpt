@@ -29,7 +29,7 @@ const MovieList = ({ title, movies, id }) => {
                 className='flex '>
                 {
                     movies.map((items, id) => {
-                        return <Link to={`/about/:${items.id}`}><MovieCard {...items} id={id} /></Link>
+                        return <Link to={`/about/${items.id}`}><MovieCard {...items} id={id} /></Link>
                     })
                 }
             </Carousel ></div>
