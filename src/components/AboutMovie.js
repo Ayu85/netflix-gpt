@@ -13,7 +13,7 @@ const AboutMovie = () => {
     return (
         <div>
             <AboutMovieHeader />
-            <MovieDetails />
+            <MovieDetails {...details} />
         </div>
     )
 }
