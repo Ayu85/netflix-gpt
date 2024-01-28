@@ -17,4 +17,4 @@ export const Language = {
         buttonText: "खोजें"
     }
 }
-export const OPEN_AI_KEY = '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';
+export const OPEN_AI_KEY = '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';
