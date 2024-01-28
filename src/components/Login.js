@@ -69,7 +69,7 @@ const Login = () => {
         <div className='relative lg:h-[70vw] md:h-[130vw] sm:h-[150vw] '>
             <Header />
             <div className='absolute'
-            ><img src={bgLogo} alt='logo' className='h-screen filter brightness-50 md:h-[130vw] sm:h-[150vw] bg-cover lg:h-[70vw]' />
+            ><img src={bgLogo} alt='logo' className='h-screen w-screen filter brightness-50 md:h-[130vw] sm:h-[150vw] bg-cover lg:h-[70vw]' />
             </div>
             {isSignIn && <form onSubmit={(e) => {
                 e.preventDefault()
