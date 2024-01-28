@@ -72,7 +72,7 @@ export const BrowseHeader = () => {
                     <option value="hindi">Hindi</option>
                 </select>
             </div>}
-            <button className='bg-green-600 px-3 h-8
+            <button className='bg-green-600 px-3 h-8 
          rounded-md font-semibold mr-10 mt-8 text-white flex items-center gap-1' onClick={() => {
                     dispatch_action(toogleGPT())
                 }}><SiElasticsearch />
