@@ -6,7 +6,7 @@ const AboutMovie = () => {
     const id = useParams();
     console.log(id);
     const getMovieDetails = async () => {
-        const rawData = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
+        const rawData = await fetch('https://api.themoviedb.org/3/movie/' +  id.id , options)
         const jsonData = await rawData.json();
         console.log(jsonData);
     }
