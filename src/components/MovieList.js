@@ -2,6 +2,7 @@ import React from 'react'
 import MovieCard from './Movie_Card'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { Link } from 'react-router-dom';
 const responsive = {
 
 
@@ -28,7 +29,7 @@ const MovieList = ({ title, movies, id }) => {
                 className='flex '>
                 {
                     movies.map((items, id) => {
-                        return <MovieCard {...items} id={id} />
+                        return <Link to={`/about/${items.id}`}><MovieCard {...items} id={id} /></Link>
                     })
                 }
             </Carousel ></div>

@@ -7,7 +7,7 @@ const SecondaryContainer = () => {
     const popularMovies = useSelector(store => store.movie.popularMovies)
     const topRatedMovies = useSelector(store => store.movie.topRatedMovies)
     const upcomingMovies = useSelector(store => store.movie.upcomingMovies)
-
+    console.log(storeMovies);
     if (!storeMovies || !popularMovies || !topRatedMovies || !upcomingMovies) return;
     return (
         <div className=' '>
