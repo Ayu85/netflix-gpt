@@ -2,13 +2,14 @@ import React from 'react'
 import { IMAGE_API } from '../utils/constants'
 import { MdOutlineStar } from "react-icons/md";
 
-const MovieDetails = ({ poster_path, original_title, genres, release_date, runtime, overview, popularity, tagline, vote_average }) => {
+const MovieDetails = ({ poster_path, backdrop_path
+    , original_title, genres, release_date, runtime, overview, popularity, tagline, vote_average }) => {
     return (
-        <div className='absolute z-20 flex  w-screen gap-20 items-center justify-center pl-44 py-10  pr-44 pt-20  bg-[#0f0f0fa9]'>
+        <div className='absolute z-20 flex  w-screen gap-20 items-center justify-center py-10 pt-20  bg-[#0f0f0fa9]'>
             <div>
                 {/* left box */}
                 {/* <img src='https://image.tmdb.org/t/p/w220_and_h330_face/mHiMmryCureDvoAOlGP6o3oXT8Y.jpg' alt="logo" /> */}
-                <img src={IMAGE_API + "/" + poster_path} alt="logo" width={250} className=' rounded-xl' />
+                <img src={IMAGE_API + "/" + backdrop_path} alt="logo" className='min-w-44 rounded-xl' />
 
             </div>
             <div>
@@ -29,7 +30,7 @@ const MovieDetails = ({ poster_path, original_title, genres, release_date, runti
                     </h1>
                     <h1 className='text-slate-300  text-lg  italic'>{tagline}</h1>
                 </div>
-                <div className='w-[600px] pt-2 font-semibold overflow-hidden
+                <div className='w-96 pt-2 font-semibold overflow-hidden
                  line-clamp-6 text-slate-200'><span className='font-bold text-xl underline'>Overview :- </span>{overview}</div>
             </div>
         </div>
