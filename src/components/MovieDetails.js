@@ -2,7 +2,7 @@ import React from 'react'
 import { IMAGE_API } from '../utils/constants'
 import { MdOutlineStar } from "react-icons/md";
 
-const MovieDetails = ({ poster_path, original_title, genres, release_date, runtime, popularity, vote_average }) => {
+const MovieDetails = ({ poster_path, original_title, genres, release_date, runtime, popularity,tagline, vote_average }) => {
     return (
         <div className='absolute z-20 flex w-screen gap-20 items-center justify-center pl-44 py-10 flex-wrap pr-44 mt-28  bg-[#0f0f0f5e]'>
             <div>
@@ -25,6 +25,7 @@ const MovieDetails = ({ poster_path, original_title, genres, release_date, runti
                     <h1 className='text-white  text-lg font-semibold border-yellow-500  border-4 flex items-center justify-center 
                      w-14 h-14 rounded-full'>{vote_average.toFixed(0)}<MdOutlineStar className='text-yellow-500'/>
                     </h1>
+                    <h1 className='text-white  text-lg  italic'>{tagline}</h1>
                 </div>
             </div>
         </div>
