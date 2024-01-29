@@ -3,9 +3,9 @@ import { IMAGE_API } from '../utils/constants'
 import { MdOutlineStar } from "react-icons/md";
 
 const MovieDetails = ({ poster_path, backdrop_path
-    , original_title, genres, release_date, runtime, overview, popularity, tagline, vote_average }) => {
+    , original_title, genres, release_date, original_language, runtime, overview, popularity, tagline, vote_average }) => {
     return (
-        <div className='absolute z-20 flex  w-screen gap-20 items-center justify-center py-10 pt-20  bg-[#0f0f0fa9]'>
+        <div className='absolute z-20 flex  w-screen gap-20 items-center justify-center py-10 pt-20  bg-[#0f0f0f8c]'>
             <div>
                 {/* left box */}
                 {/* <img src='https://image.tmdb.org/t/p/w220_and_h330_face/mHiMmryCureDvoAOlGP6o3oXT8Y.jpg' alt="logo" /> */}
@@ -32,6 +32,7 @@ const MovieDetails = ({ poster_path, backdrop_path
                 </div>
                 <div className='w-96 pt-2 font-semibold overflow-hidden
                  line-clamp-6 text-slate-200'><span className='font-bold text-xl underline'>Overview :- </span>{overview}</div>
+                <h1 className='text-white'><span className='font-bold text-xl underline'>Language :- </span> {original_language}</h1>
             </div>
         </div>
     )
