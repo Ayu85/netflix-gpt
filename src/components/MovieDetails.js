@@ -4,7 +4,7 @@ import { MdOutlineStar } from "react-icons/md";
 
 const MovieDetails = ({ poster_path, original_title, genres, release_date, runtime, overview, popularity, tagline, vote_average }) => {
     return (
-        <div className='absolute z-20 flex flex-wrap w-screen gap-20 items-center justify-center pl-44 py-10  pr-44 pt-20  bg-[#0f0f0fa9]'>
+        <div className='absolute z-20 flex  w-screen gap-20 items-center justify-center pl-44 py-10  pr-44 pt-20  bg-[#0f0f0fa9]'>
             <div>
                 {/* left box */}
                 {/* <img src='https://image.tmdb.org/t/p/w220_and_h330_face/mHiMmryCureDvoAOlGP6o3oXT8Y.jpg' alt="logo" /> */}
