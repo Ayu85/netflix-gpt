@@ -9,7 +9,7 @@ const MovieDetails = ({ poster_path, backdrop_path
             <div>
                 {/* left box */}
                 {/* <img src='https://image.tmdb.org/t/p/w220_and_h330_face/mHiMmryCureDvoAOlGP6o3oXT8Y.jpg' alt="logo" /> */}
-                <img src={IMAGE_API + "/" + backdrop_path} alt="logo" className='min-w-44 rounded-xl' />
+                <img src={IMAGE_API + "/" + poster_path} alt="logo" className='min-w-44 rounded-xl' />
 
             </div>
             <div>
